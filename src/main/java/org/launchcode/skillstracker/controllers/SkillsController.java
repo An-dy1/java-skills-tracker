@@ -1,10 +1,7 @@
 package org.launchcode.skillstracker.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SkillsController {
@@ -49,7 +46,23 @@ public class SkillsController {
 
   @PostMapping("form-complete")
   @ResponseBody
-  public String getCompletedForm() {
-    return "Completed Form";
+  public String getCompletedForm(
+      @RequestParam String name,
+      @RequestParam String firstChoice,
+      @RequestParam String secondChoice,
+      @RequestParam String thirdChoice,
+      @RequestParam String fourthChoice) {
+
+    return "<html>" +
+          "<body>" +
+          "<h1>The skills" + name + " would like to learn in order are:</h1>" +
+          "<ol>" +
+            "<li>" + firstChoice + "</li>" +
+            "<li>" + secondChoice + "</li>" +
+            "<li>" + thirdChoice + "</li>" +
+            "<li>" + fourthChoice + "</li>" +
+          "</ol>" +
+          "</body>" +
+        "</html>";
   }
 }
