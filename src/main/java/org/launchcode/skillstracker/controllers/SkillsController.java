@@ -28,23 +28,49 @@ public class SkillsController {
   public String getSkillsForm() {
     return "<html>" +
           "<body>" +
-            "<form action='form-complete' method='post'>" +
+            "<form method='post'>" +
               "<label for='name'>Name:</label>" +
               "<input type='text' id='name' name='name'><br>" +
-              "<label for='first'>My first favorite</label><br>" +
-              "<select id='first' name='first'><br>" +
+
+            "<label for='first'>My first favorite</label><br>" +
+              "<select id='first' name='firstChoice'><br>" +
                 "<option value='Typescript'>Typescript</option>" +
                 "<option value='Java'>Java</option>" +
                 "<option value='Bash'>Bash</option>" +
                 "<option value='Groovy'>Groovy</option>" +
               "</select><br>" +
+
+              "<label for='second'>My second favorite</label><br>" +
+              "<select id='second' name='secondChoice'><br>" +
+                "<option value='Typescript'>Typescript</option>" +
+                "<option value='Java'>Java</option>" +
+                "<option value='Bash'>Bash</option>" +
+                "<option value='Groovy'>Groovy</option>" +
+              "</select><br>" +
+
+              "<label for='third'>My first favorite</label><br>" +
+              "<select id='third' name='thirdChoice'><br>" +
+                "<option value='Typescript'>Typescript</option>" +
+                "<option value='Java'>Java</option>" +
+                "<option value='Bash'>Bash</option>" +
+                "<option value='Groovy'>Groovy</option>" +
+              "</select><br>" +
+
+              "<label for='fourth'>My second favorite</label><br>" +
+              "<select id='fourth' name='fourthChoice'><br>" +
+                "<option value='Typescript'>Typescript</option>" +
+                "<option value='Java'>Java</option>" +
+                "<option value='Bash'>Bash</option>" +
+                "<option value='Groovy'>Groovy</option>" +
+              "</select><br>" +
+
               "<input type='submit' value='Submit Form'>" +
             "</form>" +
           "</body>" +
         "</html>";
   }
 
-  @PostMapping("form-complete")
+  @PostMapping("form")
   @ResponseBody
   public String getCompletedForm(
       @RequestParam String name,
